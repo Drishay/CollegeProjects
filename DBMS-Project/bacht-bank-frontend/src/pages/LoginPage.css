@@ -1,67 +1,100 @@
 .login-page {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    font-family: Arial, sans-serif;
-  }
-  
-  .header, .footer {
-    background-color: #004080;
-    color: white;
-    text-align: center;
-    padding: 1rem;
-  }
-  
-  .login-box {
-    width: 300px;
-    margin: 5% auto;
-    padding: 2rem;
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    box-shadow: 0 0 10px #ccc;
-    text-align: center;
-  }
-  
-  .login-box input {
-    display: block;
-    width: 100%;
-    margin: 10px 0;
-    padding: 10px;
-  }
-  
-  .login-box button {
-    margin-top: 10px;
-    padding: 10px 20px;
-    background-color: #0077cc;
-    color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 6px;
-  }
-  
-  .forgot-link {
-    color: #0077cc;
-    cursor: pointer;
-    margin-top: 10px;
-    font-size: 0.9rem;
-  }
-  
-  /* Modal Styles */
-  .modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-  }
-  
-  .modal-box {
-    background-color: white;
-    padding: 2rem;
-    width: 300px;
-    margin: 10% auto;
-    border-radius: 10px;
-    text-align: center;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.header, .footer {
+  text-align: center;
+  padding: 15px;
+  background-color: #003366;
+  color: white;
+  font-weight: bold;
+}
+
+.login-box {
+  margin: auto;
+  padding: 30px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background-color: #f7f9fc;
+}
+
+.login-box input {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #aaa;
+}
+
+.login-box button {
+  padding: 10px;
+  background-color: #003366;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.forgot-link {
+  color: #003366;
+  text-align: right;
+  cursor: pointer;
+  font-size: 0.9em;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-box {
+  background-color: white;
+  padding: 25px;
+  border-radius: 10px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.forgot-link {
+  color: #003366;
+  text-align: right;
+  cursor: pointer;
+  font-size: 0.9em;
+  margin-top: -10px;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-box {
+  background-color: white;
+  padding: 25px;
+  border-radius: 10px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+}

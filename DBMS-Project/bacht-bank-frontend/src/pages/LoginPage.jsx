@@ -8,34 +8,16 @@ function LoginPage() {
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [showForgot, setShowForgot] = useState(false);
-  const [message, setMessage] = useState('');
+  const [error, setError] = useState('');
+  const [showForgotModal, setShowForgotModal] = useState(false);
 
-  const handleLogin = async () => {
-    // This is where we'll connect the backend later
+  const handleLogin = () => {
     if (!username || !password) {
-      setMessage("Please enter both fields");
+      setError('Please fill in both username and password');
       return;
     }
 
-    try {
-      const response = await fetch('http://localhost:8080/api/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ role, username, password })
-      });
-
-      const data = await response.json();
-
-      if (data.success) {
-        setMessage("Login successful ✅");
-        navigate(`/${role}/dashboard`);  // Redirect to respective dashboard
-      } else {
-        setMessage("Invalid credentials ❌");
-      }
-    } catch (err) {
-      setMessage("Login error. Is your backend running?");
-    }
+    navigate(`/${role}/dashboard`);
   };
 
   return (
@@ -44,22 +26,31 @@ function LoginPage() {
 
       <div className="login-box">
         <h2>LOGIN ({role?.toUpperCase()})</h2>
-        <input type="text" placeholder="Username" value={username} onChange={e => setUsername(e.target.value)} />
-        <input type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} />
+        <input
+          type="text"
+          placeholder="Username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
         <button onClick={handleLogin}>Submit</button>
-        {message && <p>{message}</p>}
-
-        <p className="forgot-link" onClick={() => setShowForgot(true)}>Forgot password?</p>
+        <p className="forgot-link" onClick={() => setShowForgotModal(true)}>Forgot password?</p>
+        {error && <p style={{ color: 'red' }}>{error}</p>}
       </div>
 
-      {showForgot && (
-        <div className="modal">
+      {showForgotModal && (
+        <div className="modal-overlay">
           <div className="modal-box">
             <h3>Forgot Password</h3>
-            <input type="text" placeholder="Forgot Question" />
+            <input type="text" placeholder="Security Question" />
             <input type="text" placeholder="Your Answer" />
             <button>Submit</button>
-            <button onClick={() => setShowForgot(false)}>Cancel</button>
+            <button onClick={() => setShowForgotModal(false)}>Cancel</button>
           </div>
         </div>
       )}
