@@ -1,0 +1,8 @@
+yfinance
+matplotlib
+pandas
+openpyxl
+sv_ttk
+
+
+How to Use: Place this file in your project folder, after activating your virtual environment, run: pip install -r requirements.txt
